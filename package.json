@@ -1,5 +1,5 @@
 {
-  "name": "cd/entity-db",
+  "name": "@cd/entity-db",
   "version": "1.0.14",
   "description": "EntityDB is an in-browser vector database wrapping indexedDB and Transformers.js",
   "main": "src/index.js",
