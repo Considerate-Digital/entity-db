@@ -106,7 +106,8 @@ async function loadWasm() {
 }
 
 class EntityDB {
-  constructor({ vectorPath, model = defaultModel }) {
+  constructor({dbName, vectorPath, model = defaultModel }) {
+    this.dbName = dbName;
     this.vectorPath = vectorPath;
     this.model = model;
     this.dbPromise = this._initDB();
@@ -114,7 +115,7 @@ class EntityDB {
 
   // Initialize the IndexedDB
   async _initDB() {
-    const db = await openDB("EntityDB", 1, {
+    const db = await openDB(this.dbName, 1, {
       upgrade(db) {
         if (!db.objectStoreNames.contains("vectors")) {
           db.createObjectStore("vectors", {
