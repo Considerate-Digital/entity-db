@@ -215,7 +215,7 @@ class EntityDB {
 
   // Destroy the db
   async destroy() {
-    await deleteDB(this.name);
+    await deleteDB(this.dbName);
   }
 
   // Query vectors by cosine similarity (using a text input that will be converted into embeddings)
