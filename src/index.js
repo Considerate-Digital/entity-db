@@ -111,6 +111,8 @@ class EntityDB {
     this.vectorPath = vectorPath;
     this.model = model;
     this.dbPromise = this._initDB();
+    console.log("Entity DB initialised");
+    console.log(this.dbName);
   }
 
   // Initialize the IndexedDB
