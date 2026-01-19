@@ -1,4 +1,4 @@
-import { openDB } from "idb";
+import { openDB, deleteDB } from "idb";
 import { pipeline } from "@xenova/transformers";
 import { env } from "@xenova/transformers";
 
@@ -211,6 +211,11 @@ class EntityDB {
     const transaction = db.transaction("vectors", "readwrite");
     const store = transaction.objectStore("vectors");
     await store.delete(key);
+  }
+
+  // Destroy the db
+  async destroy() {
+    await deleteDB(this.name);
   }
 
   // Query vectors by cosine similarity (using a text input that will be converted into embeddings)
