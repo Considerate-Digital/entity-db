@@ -371,8 +371,8 @@ class EntityDB {
       throw new Error(`Error querying manual vectors: ${error}`);
     }
   }
-}
 */
+}
 
 // Export EntityDB class
 export { EntityDB };
