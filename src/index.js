@@ -3,7 +3,10 @@ import { pipeline } from "@xenova/transformers";
 import { env } from "@xenova/transformers";
 
 // Specify a custom location for models (defaults to '/models/').
-env.localModelPath = "/huggingface";
+//env.localModelPath = "/huggingface";
+
+// specify that we're working in a browser context
+env.allowLocalModels = false;
 
 // Disable the loading of remote models from the Hugging Face Hub:
 // env.allowRemoteModels = false;
