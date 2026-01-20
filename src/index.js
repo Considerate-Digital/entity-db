@@ -1,9 +1,9 @@
 import { openDB, deleteDB } from "idb";
 import { pipeline } from "@xenova/transformers";
-//import { env } from "@xenova/transformers";
+import { env } from "@xenova/transformers";
 
 // Specify a custom location for models (defaults to '/models/').
-//env.localModelPath = "/huggingface";
+env.localModelPath = "/huggingface";
 
 // Disable the loading of remote models from the Hugging Face Hub:
 // env.allowRemoteModels = false;
@@ -80,7 +80,7 @@ function base64ToUint8Array(base64) {
     return Uint8Array.from(Buffer.from(base64, "base64"));
   }
 }
-/*
+
 async function loadWasm() {
   const wasmBinary = base64ToUint8Array(wasmBase64); // Decode Base64
   const wasmModule = await WebAssembly.instantiate(wasmBinary, {
@@ -104,7 +104,6 @@ async function loadWasm() {
     memory, // Ensure memory is included
   };
 }
-*/
 
 class EntityDB {
   constructor({dbName, vectorPath, model = defaultModel }) {
@@ -292,7 +291,6 @@ class EntityDB {
   This reduces the number of CPU cycles required for the same amount of work compared to sequential 
   bitwise operations in JavaScript. SIMD in WebAssembly is likely 2x to 4x faster or more over big vectors.
   */
-  /*
   async queryBinarySIMD(queryText, { limit = 10 } = {}) {
     try {
       const queryVector = await getEmbeddingFromText(queryText, this.model);
@@ -371,7 +369,6 @@ class EntityDB {
       throw new Error(`Error querying manual vectors: ${error}`);
     }
   }
-*/
 }
 
 // Export EntityDB class
